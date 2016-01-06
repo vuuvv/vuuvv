@@ -15,8 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/**/*.js',
-      'test/**/*.js'
+      'tests.webpack.js'
     ],
 
 
@@ -28,13 +27,20 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'tests.webpack.js': ['webpack']
     },
+
+    plugins: [
+      'karma-jasmine',
+      'karma-phantomjs-launcher',
+      'karma-webpack'
+    ],
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['dots'],
 
 
     // web server port
@@ -56,7 +62,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
@@ -65,6 +71,18 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: Infinity,
+
+    webpack: {
+      module: {
+        preLoaders: [
+          {
+            test: /\.js$/,
+            exclude: /(bower_components|node_modules)/,
+            loaders: ['babel']
+          }
+        ]
+      }
+    }
   })
 }
