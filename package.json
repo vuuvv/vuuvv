@@ -11,6 +11,10 @@
   "license": "ISC",
   "devDependencies": {
     "eslint": "^1.10.3",
-    "eslint-config-airbnb": "^3.0.0"
+    "eslint-config-airbnb": "^3.0.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.19",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-jasmine": "^0.3.6"
   }
 }
