@@ -79,7 +79,7 @@ module.exports = function(config) {
           {
             test: /\.js$/,
             exclude: /(bower_components|node_modules)/,
-            loaders: ['babel']
+            loaders: ['babel', 'eslint']
           }
         ]
       }

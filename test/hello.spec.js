@@ -1,9 +1,9 @@
 'use strict';
 
-var hello = require('../src/hello');
+const hello = require('../src/hello');
 
-describe('Hello', function() {
-  it('says hello', function() {
+describe('Hello', () => {
+  it('says hello', () => {
     expect(hello()).toBe('Hello, world!');
-  })
-})
+  });
+});
